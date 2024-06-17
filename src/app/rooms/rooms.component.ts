@@ -1,18 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { Room } from './rooms'
 
 @Component({
   selector: 'basic-rooms',
   templateUrl: './rooms.component.html',
-  styleUrl: './rooms.component.scss'
+  styleUrl: './rooms.component.scss',
 })
-export class RoomsComponent implements OnInit{
-
+export class RoomsComponent implements OnInit {
   HotelName = 'Hilton hotel';
-  numberOfRooms: any;
+
+  numberOfRooms = 10;
+
+  hideRooms = false;
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  toggle() {
+    this.hideRooms = !this.hideRooms;
+  }
 
 
-  constructor(){}
-ngOnInit(): void {
-  
-}
+  rooms: Room = {
+    totalRooms: 20,
+    availableRooms: 20,
+    bookedRooms: 5
+  }
 }
